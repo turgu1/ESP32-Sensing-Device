@@ -7,7 +7,7 @@ This is a small footprint ESP32-based sensing device, with the following charact
 - 30x28 mm circuit board (30x40 mm with ESP32 antenna)
 - Two power modes:
     - Battery (AAx2) (through external battery case)
-    - External power support (through power only Micro USB-B port)
+    - External 5 Volts power support (through power only Micro USB-B port)
 - Battery level monitoring circuit
 - Three Sensing ports:
     - Multi-Purpose (configurable through Resistance and Capacitor parts)
