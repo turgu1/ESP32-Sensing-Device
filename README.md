@@ -27,6 +27,32 @@ This is a small footprint ESP32-based sensing device, with the following charact
 
 The choice of components is related to their availability in my inventory. 
 
+## Design Description
+
+Looking at the schematic, you will find here the information related to each subsection present on the device. Some subsections are required, others are optional depending on your needs.
+
+The electronic component identifiers required for each subsection are listed inside square brackets.
+
+### Required Subsections
+
+- **ESP-WROOM-32** [**U1**] - This is the processor in use on the device.
+- **RESET Button** [**SW2**, **R6**, **C1**] - Required to maintain the processor working and do a reset when it is required to take back the control for programming or when the device is not behaving properly.
+- **PGM Button** [**SW1**, **R5**] - For programming the processor, the PGM Button must be pressed as the reset button is also pressed such that the processor will be put in program loading. The FTDI interface must be connected to the computer to transmit the new program.
+- **FTDI** [**D2**, **J1**] - This is the connection to an external FTDI device that allows for communication between the ESP32 processor and a development PC.
+
+### Optional Subsections
+
+- **AAx2 Battery Connector** [**J2**] - If power is to be supplied with AA batteries, the connector is required. The batteries holder wires can also be directly soldered in the through-holes. Please respect the polarity (a '+' sign is present on the board to indicate the positive wire location). **Do not connect any battery if you are intending to use an external power supply.**
+- **External 5V Power**, [**U2**, **J6**, **D1**, **D3**, **R13**, **C2**, **C3**, **C4**, **C5**] - This is a linear 3.3V regulator circuit, only required when a DC 5 Volts power supply is used. It is expected that the power supply is using a male micro USB-B connector. **Do not implement this subsection if you are intending to use batteries.**
+- **Voltage Monitoring** [**Q1**, **Q2**, **R1**, **R2**, **R3**, **R4**] - This circuit will allow for reading the 3.3 V power voltage for the device through an A2D internal to the ESP32. If AA batteries are used, it will allow monitoring the battery level to replace them when required. The MOSFET transistor [Q2] insure that the circuit will not take a load on the batteries.
+- **Generic Sensor Input** [**J3**, **R7**, **R8**, **R9**, **R10**] - This is a port to retrieve some sensor information. The four registers must be adjusted to consider the can of sensing to be done. Some registers could be replaced with capacitors if required (e.g. adding an RC circuit). Connected to GPIO15 of the ESP32.
+- **Heat Sensor** [**J4**, **R11**] - Allow for reading the level of Heat using an external thermistor, through an A2D of the processor. Connection to GPIO25 of the ESP32. Can be used with another kind of sensor as appropriate.
+- **Light Sensor** [**J5**, **R12**] - Allow for reading the level of Heat using an external photoresistor, through an A2D of the processor. Connection to GPIO27 of the ESP32. Can be used with another kind of sensor as appropriate.
+
+### Bill of Material (BOM)
+
+(To be added)
+
 ## Copyright (c) 2022 Guy Turcotte
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this project and associated documentation files (the "Project Content"), to deal in the Project without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Project Content, and to permit persons to whom the Project Content is furnished to do so, subject to the following conditions:

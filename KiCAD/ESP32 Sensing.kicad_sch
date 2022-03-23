@@ -4,6 +4,13 @@
 
   (paper "A4")
 
+  (title_block
+    (title "ESP32 Sensing Device")
+    (date "2022-03-23")
+    (rev "1.0")
+    (company "Guy Turcotte")
+  )
+
   (lib_symbols
     (symbol "Connector:Conn_01x02_Male" (pin_names (offset 1.016) hide) (in_bom yes) (on_board yes)
       (property "Reference" "J" (id 0) (at 0 2.54 0)
@@ -1155,7 +1162,6 @@
     )
   )
 
-
   (junction (at 49.53 109.22) (diameter 0) (color 0 0 0 0)
     (uuid 0b8d9c24-737b-4849-9953-6871d411db6c)
   )
@@ -1884,11 +1890,11 @@
     (uuid fee43b07-cac7-4b9c-b28e-198682896f8f)
   )
 
-  (text "Thermistor" (at 26.67 153.67 0)
+  (text "Heat Sensor" (at 26.67 153.67 0)
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid 10abe5ff-7267-4a7a-b112-4114bbd2e2ce)
   )
-  (text "Battery Voltage Monitoring" (at 185.42 86.36 0)
+  (text "Voltage Monitoring" (at 185.42 86.36 0)
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid 126bbaab-ef4d-4250-a432-3f76650cbe84)
   )
@@ -1896,7 +1902,7 @@
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid 30bd50c7-3bea-4651-a527-63fc2265671b)
   )
-  (text "Sensor Input" (at 185.42 35.56 0)
+  (text "Generic Sensor Input" (at 185.42 35.56 0)
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid 370aea02-c5e4-40cb-9b35-4c455c125fa9)
   )
@@ -1916,7 +1922,7 @@
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid c0b3c57c-f9d6-4e4e-9abd-5d3de14a4dfe)
   )
-  (text "Light Detector" (at 68.58 153.67 0)
+  (text "Light Sensor" (at 68.58 153.67 0)
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid cb5d1bbc-918f-45f6-bd78-b76aef1c7815)
   )
@@ -2774,7 +2780,7 @@
     (property "Value" "220" (id 1) (at 53.34 69.85 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Footprint" "" (id 2) (at 50.292 68.58 90)
+    (property "Footprint" "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" (id 2) (at 50.292 68.58 90)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (id 3) (at 52.07 68.58 0)
