@@ -38,7 +38,7 @@ The electronic component identifiers required for each subsection are listed ins
 - **ESP-WROOM-32** [**U1**] - This is the processor in use on the device.
 - **RESET Button** [**SW2**, **R6**, **C1**] - Required to maintain the processor working and do a reset when it is required to take back the control for programming or when the device is not behaving properly.
 - **PGM Button** [**SW1**, **R5**] - For programming the processor, the PGM Button must be pressed as the reset button is also pressed such that the processor will be put in program loading. The FTDI interface must be connected to the computer to transmit the new program.
-- **FTDI** [**D2**, **J1**] - This is the connection to an external FTDI device that allows for communication between the ESP32 processor and a development PC.
+- **FTDI** [**D2**, **J1**] - This is the connection to an external FTDI device that allows for communication between the ESP32 processor and a development PC for program loading and debugging output. Connector's pins are labeled **G** (Ground), **R** (RxD), and **T** (TxD) relative to the ESP32 pins: The External FTDI GND pin must be connected to **G**, the FTDI RxD pin must be connected to **T**, and the FTDI TxD pin must be connected to **R**. Power must be supplied to the board through AA batteries or external power supply.
 
 ### Optional Subsections
 
