@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <export version="E">
   <design>
-    <source>/home/turgu1/Dev/KiCad/ESP32 Sensing/ESP32 Sensing.kicad_sch</source>
-    <date>Wed 23 Mar 2022 01:24:40 PM</date>
+    <source>/home/turgu1/Dev/KiCad/ESP32 Sensing/KiCAD/ESP32 Sensing.kicad_sch</source>
+    <date>Wed 23 Mar 2022 08:08:51 PM</date>
     <tool>Eeschema 6.0.4-6f826c9f35~116~ubuntu20.04.1</tool>
     <sheet number="1" name="/" tstamps="/">
       <title_block>
-        <title/>
-        <company/>
-        <rev/>
-        <date/>
+        <title>ESP32 Sensing Device</title>
+        <company>Guy Turcotte</company>
+        <rev>1.0</rev>
+        <date>2022-03-23</date>
         <source>ESP32 Sensing.kicad_sch</source>
         <comment number="1" value=""/>
         <comment number="2" value=""/>
@@ -165,12 +165,12 @@
     <comp ref="Q2">
       <value>NDS356AP</value>
       <footprint>Package_TO_SOT_SMD:SOT-23</footprint>
-      <datasheet>http://assets.nexperia.com/documents/data-sheet/BSS84.pdf</datasheet>
-      <libsource lib="Transistor_FET" part="BSS84" description="-0.13A Id, -50V Vds, P-Channel MOSFET, SOT-23"/>
+      <datasheet>https://rocelec.widen.net/view/pdf/qv8gjztlsc/ONSM-S-A0003585169-1.pdf?t.download=true&amp;u=5oefqw</datasheet>
+      <libsource lib="ESP32 Sensing" part="NDS356AP" description=""/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="ESP32 Sensing.kicad_sch"/>
       <sheetpath names="/" tstamps="/"/>
-      <tstamps>5e813023-f164-4a19-bc58-3eafdf40bdee</tstamps>
+      <tstamps>f4d07452-5838-44e6-b966-b49f14e25425</tstamps>
     </comp>
     <comp ref="R1">
       <value>10k</value>
@@ -458,6 +458,20 @@
         <pin num="3" name="Shield" type="passive"/>
       </pins>
     </libpart>
+    <libpart lib="ESP32 Sensing" part="NDS356AP">
+      <docs>https://rocelec.widen.net/view/pdf/qv8gjztlsc/ONSM-S-A0003585169-1.pdf?t.download=true&amp;u=5oefqw</docs>
+      <fields>
+        <field name="Reference">Q</field>
+        <field name="Value">NDS356AP</field>
+        <field name="Footprint">Package_TO_SOT_SMD:SOT-23</field>
+        <field name="Datasheet">https://rocelec.widen.net/view/pdf/qv8gjztlsc/ONSM-S-A0003585169-1.pdf?t.download=true&amp;u=5oefqw</field>
+      </fields>
+      <pins>
+        <pin num="1" name="G" type="input"/>
+        <pin num="2" name="S" type="passive"/>
+        <pin num="3" name="D" type="passive"/>
+      </pins>
+    </libpart>
     <libpart lib="ESP32 Sensing" part="PTS526_SK15_SMTR2_LFS">
       <footprints>
         <fp>SMT_FS</fp>
@@ -564,24 +578,6 @@
         <pin num="3" name="C" type="passive"/>
       </pins>
     </libpart>
-    <libpart lib="Transistor_FET" part="BSS84">
-      <description>-0.13A Id, -50V Vds, P-Channel MOSFET, SOT-23</description>
-      <docs>http://assets.nexperia.com/documents/data-sheet/BSS84.pdf</docs>
-      <footprints>
-        <fp>SOT?23*</fp>
-      </footprints>
-      <fields>
-        <field name="Reference">Q</field>
-        <field name="Value">BSS84</field>
-        <field name="Footprint">Package_TO_SOT_SMD:SOT-23</field>
-        <field name="Datasheet">http://assets.nexperia.com/documents/data-sheet/BSS84.pdf</field>
-      </fields>
-      <pins>
-        <pin num="1" name="G" type="input"/>
-        <pin num="2" name="S" type="passive"/>
-        <pin num="3" name="D" type="passive"/>
-      </pins>
-    </libpart>
   </libparts>
   <libraries>
     <library logical="Connector">
@@ -594,7 +590,7 @@
       <uri>/usr/share/kicad/symbols//Diode.kicad_sym</uri>
     </library>
     <library logical="ESP32 Sensing">
-      <uri>/home/turgu1/Dev/KiCad/ESP32 Sensing/Parts/2021-02-05_17-13-22.kicad_sym</uri>
+      <uri>/home/turgu1/Dev/KiCad/ESP32 Sensing/KiCAD/Parts/2021-02-05_17-13-22.kicad_sym</uri>
     </library>
     <library logical="RF_Module">
       <uri>/usr/share/kicad/symbols//RF_Module.kicad_sym</uri>
@@ -604,9 +600,6 @@
     </library>
     <library logical="Transistor_BJT">
       <uri>/usr/share/kicad/symbols//Transistor_BJT.kicad_sym</uri>
-    </library>
-    <library logical="Transistor_FET">
-      <uri>/usr/share/kicad/symbols//Transistor_FET.kicad_sym</uri>
     </library>
   </libraries>
   <nets>
@@ -721,7 +714,7 @@
       <node ref="Q2" pin="1" pinfunction="G" pintype="input"/>
       <node ref="R1" pin="2" pintype="passive"/>
     </net>
-    <net code="18" name="Net-(Q2-Pad3)">
+    <net code="18" name="Net-(R3-Pad2)">
       <node ref="Q2" pin="3" pinfunction="D" pintype="passive"/>
       <node ref="R3" pin="2" pintype="passive"/>
     </net>
