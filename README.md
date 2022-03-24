@@ -12,7 +12,7 @@ This is a small footprint ESP32-based sensing device, with the following charact
     - External 5 Volts power support (through power only Micro USB-B port)
 - Battery level monitoring circuit
 - Three Sensing ports:
-    - Multi-Purpose (configurable through Resistance and Capacitor parts)
+    - Multi-Purpose (configurable through Resistor and Capacitor parts)
     - Thermistor (https://learn.adafruit.com/thermistor/using-a-thermistor)
     - Photoresistor (https://learn.adafruit.com/photocells/using-a-photocell)
 - External FTDI port (through a 3-pins [GND, RxD, TxD] port) (https://learn.adafruit.com/ftdi-friend)
@@ -42,12 +42,14 @@ The electronic component identifiers required for each subsection are listed ins
 
 ### Optional Subsections
 
-- **AAx2 Battery Connector** [**J2**] - If power is to be supplied with AA batteries, the connector is required. The batteries holder wires can also be directly soldered in the through-holes. Please respect the polarity (a '+' sign is present on the board to indicate the positive wire location). **Do not connect any battery if you are intending to use an external power supply.**
-- **External 5V Power**, [**U2**, **J6**, **D1**, **D3**, **R13**, **C2**, **C3**, **C4**, **C5**] - This is a linear 3.3V regulator circuit, only required when a DC 5 Volts power supply is used. It is expected that the power supply is using a male micro USB-B connector. **Do not implement this subsection if you are intending to use batteries.**
-- **Voltage Monitoring** [**Q1**, **Q2**, **R1**, **R2**, **R3**, **R4**] - This circuit will allow for reading the 3.3 V power voltage for the device through an A2D internal to the ESP32. If AA batteries are used, it will allow monitoring the battery level to replace them when required. The MOSFET transistor [Q2] insure that the circuit will not take a load on the batteries.
-- **Generic Sensor Input** [**J3**, **R7**, **R8**, **R9**, **R10**] - This is a port to retrieve some sensor information. The four registers must be adjusted to consider the kind of sensing to be done. Some registers could be replaced with capacitors if required (e.g. adding an RC circuit). Connected to GPIO15 of the ESP32.
-- **Heat Sensor** [**J4**, **R11**] - Allow for reading the level of Heat using an external thermistor, through an A2D of the processor. Connected to GPIO25 of the ESP32. Can be used with another kind of sensor as appropriate.
-- **Light Sensor** [**J5**, **R12**] - Allow for reading the level of Heat using an external photoresistor, through an A2D of the processor. Connected to GPIO27 of the ESP32. Can be used with another kind of sensor as appropriate.
+- **AAx2 Battery Connector** [**J2**] - If power is to be supplied with AA batteries, the connector is required. The batteries holder wires can also be directly soldered in the through-holes. Please respect the polarity (a '+' sign is present on the board to indicate the positive wire location). **Do not connect any battery if you intend to use an external power supply.**
+- **External 5V Power**, [**U2**, **J6**, **D1**, **D3**, **R13**, **C2**, **C3**, **C4**, **C5**] - This is a linear 3.3V regulator circuit, only required when a DC 5 Volts power supply is used. It is expected that the power supply is using a male micro USB-B connector. **Do not implement this subsection if you intend to use batteries.**
+- **Voltage Monitoring** [**Q1**, **Q2**, **R1**, **R2**, **R3**, **R4**] - This circuit will allow for reading the 3.3 V power voltage for the device through ADC1_0 internal to the ESP32. If AA batteries are used, it will allow monitoring the battery level to replace them when required. The MOSFET transistor [**Q2**] insure that the circuit will not take a load on the batteries. Must be enabled through [**Q1**] using GPIO17.
+- **Generic Sensor Input** [**J3**, **R7**, **R8**, **R9**, **R10**] - This is a port to retrieve some sensor information. The four resistors must be adjusted to consider the kind of sensing to be done (pull-up, pull-down, etc.). Some resistors locations can be used for capacitors if required (e.g. adding an RC circuit). This sensor is connected to GPIO15 (ADC2_3) of the ESP32.
+- **Heat Sensor** [**J4**, **R11**] - Allow for reading the level of Heat using an external thermistor through an A2D of the processor. This sensor is connected to GPIO25 (ADC2_8) of the ESP32. Can be used with another kind of sensor as appropriate.
+- **Light Sensor** [**J5**, **R12**] - Allow for reading the level of Heat using an external photoresistor through an A2D of the processor. This sensor is connected to GPIO27 (ADC2_7) of the ESP32. Can be used with another kind of sensor as appropriate.
+
+<img src="pictures/ESP32-wroom-32-pinout-mischianti-high-resolution.png" alt="picture" width="612"/>
 
 ### Bill of Material (BOM)
 
