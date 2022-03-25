@@ -1,8 +1,6 @@
 # ESP32 Sensing device V1.0
 
-(Updated March 23, 2022)
-
-(The documentation remains to be completed)
+(Updated March 25, 2022)
 
 This is a small footprint ESP32-based sensing device, with the following characteristics:
 
