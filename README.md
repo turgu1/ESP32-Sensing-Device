@@ -54,24 +54,24 @@ The electronic component identifiers required for each subsection are listed ins
 ### Bill of Material (BOM)
 
 | Reference(s) | Value | Footprint | Where to find |
-|:------------:|:-----:|:---------:|---------------
+|:------------:|:-----:|:---------:|:--------------
 | C1 | .1uF | 0805 | |
 | C2, C5 | 10nF | 0805 | |
 | C3, C4 | 100nF | 0805 | |
-| D1 | MBR120VLSF | SOD-123 | (e-Radionica)[https://e-radionica.com/en/schottky-diode-mbr120vlsft3g-sod123.html] (Digikey)[https://www.digikey.com/en/products/detail/on-semiconductor/MBR120VLSFT3G/1477157] (Mouser)[https://www.mouser.com/ProductDetail/onsemi/MBR120VLSFT3G?qs=3JMERSakebrD2yr9jFliaA%3D%3D] |
-| D2 | 1N4148WS | SOD-323 | (Digikey)[https://www.digikey.com/en/products/detail/on-semiconductor/1N4148WS/1873805] (Mouser)[https://www.mouser.ca/ProductDetail/onsemi-Fairchild/1N4148WS?qs=2%2FYqgE%252BHg%252BKBrKZlAsMLhw%3D%3D] |
+| D1 | MBR120VLSF | SOD-123 | [e-Radionica](https://e-radionica.com/en/schottky-diode-mbr120vlsft3g-sod123.html), [Digikey](https://www.digikey.com/en/products/detail/on-semiconductor/MBR120VLSFT3G/1477157), [Mouser](https://www.mouser.com/ProductDetail/onsemi/MBR120VLSFT3G?qs=3JMERSakebrD2yr9jFliaA%3D%3D) |
+| D2 | 1N4148WS | SOD-323 | [Digikey](https://www.digikey.com/en/products/detail/on-semiconductor/1N4148WS/1873805), [Mouser](https://www.mouser.ca/ProductDetail/onsemi-Fairchild/1N4148WS?qs=2%2FYqgE%252BHg%252BKBrKZlAsMLhw%3D%3D) |
 | D3 | LED | 0805 | |
 | J1 | Connector 1x3 | Pin Header 2.54mm | |
 | J2, J3, J4, J5 | Connector 1x2 | Pin Header 2.54mm | |
-| J6 | Micro-B USB | | (AliExpress)[https://fr.aliexpress.com/item/32886396127.html?gatewayAdapt=glo2fra] (Amazon)[https://www.amazon.com/uxcell-100PCS-Connector-Replacement-Adapter/dp/B07R1HG29D/ref=psdc_172544_t1_B07R1HRM1T] |
+| J6 | Micro-B USB | | [AliExpress](https://fr.aliexpress.com/item/32886396127.html?gatewayAdapt=glo2fra), [Amazon](https://www.amazon.com/uxcell-100PCS-Connector-Replacement-Adapter/dp/B07R1HG29D/ref=psdc_172544_t1_B07R1HRM1T) |
 | Q1 | MMBT3904 | SOT-23 | |
 | Q2 | NDS356AP | SOT-23 | |
 | R1, R3 to R7, R10 to R12 | 10k ohms | 0805 | |
 | R2 | 1k ohms | 0805 | |
 | R8, R9 | 0 ohms | 0805 | |
 | R13 | 220 ohms | 0805 | |
-| SW1, SW2 | PTS526_SK15_SMTR2_LFS | SMTR2 | (Mouser)[https://www.mouser.com/ProductDetail/CK/PTS526-SK15-SMTR2-LFS?qs=UXgszm6BlbF5Ezp94JAQtw%3D%3D] (Digikey)[https://www.digikey.com/en/products/detail/c-k/PTS526-SK15-SMTR2-LFS/10056626] (e-Radionica)[https://e-radionica.com/en/smd-pushbutton.html] |
-| U1 | ESP-WROOM-32 | | (e-Radionica)[https://e-radionica.com/en/esp32-wroom-32d-wifi-module.html] |
+| SW1, SW2 | PTS526_SK15_SMTR2_LFS | SMTR2 | [Mouser](https://www.mouser.com/ProductDetail/CK/PTS526-SK15-SMTR2-LFS?qs=UXgszm6BlbF5Ezp94JAQtw%3D%3D), [Digikey](https://www.digikey.com/en/products/detail/c-k/PTS526-SK15-SMTR2-LFS/10056626), [e-Radionica](https://e-radionica.com/en/smd-pushbutton.html) |
+| U1 | ESP-WROOM-32 | | [e-Radionica](https://e-radionica.com/en/esp32-wroom-32d-wifi-module.html) |
 | U2 | AMS1117-3.3 | SOT-223-3 | |
 
 ## Copyright (c) 2022 Guy Turcotte
