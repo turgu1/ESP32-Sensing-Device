@@ -35,8 +35,8 @@
   (pad "2" thru_hole circle (at 1.27 -3.81) (size 1.524 1.524) (drill 0.762) (layers *.Cu *.Mask) (tstamp 12ba5027-573e-4943-9240-d98dd8c6041b))
   (pad "3" thru_hole circle (at -3.81 0) (size 1.85 1.85) (drill 1.3285) (layers *.Cu *.Mask) (tstamp b019ad6e-ec2a-4595-abc5-679cfdb81dae))
   (pad "3" thru_hole circle (at 3.81 0) (size 1.85 1.85) (drill 1.3285) (layers *.Cu *.Mask) (tstamp b717102f-85f2-40c6-b584-55fef16520de))
-  (model "${KIPRJMOD}/Parts/3D/USB3075-30-A.stp"
-    (offset (xyz 0 0.3048 1.143))
+  (model "${KIPRJMOD}/Parts/3D/Test2.stp"
+    (offset (xyz 0 -1.4732 1.143))
     (scale (xyz 1 1 1))
     (rotate (xyz -90 0 0))
   )

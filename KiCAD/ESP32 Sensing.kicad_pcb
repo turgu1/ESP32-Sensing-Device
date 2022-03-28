@@ -841,8 +841,8 @@
       (net 2 "GND") (pinfunction "Shield") (pintype "passive") (tstamp 9e5fe65d-f158-4eb5-af93-2b5d0b9a0d55))
     (pad "3" thru_hole circle (at 3.81 0) (size 1.85 1.85) (drill 1.3285) (layers *.Cu *.Mask)
       (net 2 "GND") (pinfunction "Shield") (pintype "passive") (tstamp a86cc026-cc17-4a81-85bf-4c26f61b9f32))
-    (model "${KIPRJMOD}/Parts/3D/USB3075-30-A.stp"
-      (offset (xyz 0 0.3048 1.143))
+    (model "${KIPRJMOD}/Parts/3D/Test2.stp"
+      (offset (xyz 0 -1.5 1))
       (scale (xyz 1 1 1))
       (rotate (xyz -90 0 0))
     )
