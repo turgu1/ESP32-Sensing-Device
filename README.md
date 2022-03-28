@@ -36,7 +36,7 @@ The electronic component identifiers required for each subsection are listed ins
 - **ESP-WROOM-32** [**U1**] - This is the processor in use on the device.
 - **RESET Button** [**SW2**, **R6**, **C1**] - Required to maintain the processor working and do a reset when it is required to take back the control for programming or when the device is not behaving properly.
 - **PGM Button** [**SW1**, **R5**] - For programming the processor, the PGM Button must be pressed as the reset button is also pressed such that the processor will be put in program loading. The FTDI interface must be connected to the computer to transmit the new program.
-- **FTDI** [**D2**, **J1**] - This is the connection to an external FTDI device that allows for communication between the ESP32 processor and a development PC for program loading and debugging output. Connector's pins are labeled **G** (Ground), **R** (RxD), and **T** (TxD) relative to the ESP32 pins: The External FTDI GND pin must be connected to **G**, the FTDI RxD pin must be connected to **T**, and the FTDI TxD pin must be connected to **R**. Power must be supplied to the board through AA batteries or external power supply.
+- **FTDI** [**D2**, **J1**] - This is the connection to an external FTDI device that allows for communication between the ESP32 processor and a development PC for program loading and debugging output. Connector's pins are labeled **G** (Ground), **R** (RxD), and **T** (TxD) relative to the ESP32 pinout: The External FTDI GND pin must be connected to **G**, the FTDI RxD pin must be connected to **T**, and the FTDI TxD pin must be connected to **R**. Power must be supplied to the board through AA batteries or external power supply.
 
 ### Optional Subsections
 
@@ -53,9 +53,11 @@ The electronic component identifiers required for each subsection are listed ins
 
 - The thermistor and photoresistive interfaces are exploratory. The known lack of linearity of the ESP32 A2D may have an impact on the quality of the retrieved data. See [here](https://www.e-tinkers.com/2019/10/using-a-thermistor-with-arduino-and-unexpected-esp32-adc-non-linearity/), and [here](https://rntlab.com/question/analogread-for-ntc-thermistor/) for further information.
 
-- The Micro USB-B connector is a specific part with only 2 through hole pins (GND and 5V). See the BOM below for purchase locations. On Amazon, there is 100, 30 and 10 pieces bundles available. A more conventional 5-pins connector may be adapted (physical tweak or modification to the board design).
+- The Micro USB-B connector is a specific part with only 2 through-hole pins (GND and 5V). See the BOM below for purchase locations. On Amazon, there are 100, 30, and 10 pieces bundles available. A more conventional 5-pins connector may be adapted (physical tweak or modification to the board design).
 
 - The LED is for use only with the external power supply and is hooked on the 5v side of the linear regulator. It could have been hooked to the 3.3v side, closer to the ESP32.
+
+- The linear 3.3v regulator capacitors mays have to be different than the one selected. In particular, on the output side, to get a better transient response, a 22uF tantalum may replace the one indicated (per the AMS1117 spec sheet).
 
 ## Bill of Material (BOM)
 
