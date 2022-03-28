@@ -49,14 +49,22 @@ The electronic component identifiers required for each subsection are listed ins
 
 <img src="pictures/ESP32-wroom-32-pinout-mischianti-high-resolution.png" alt="picture" width="612"/>
 
-### Bill of Material (BOM)
+### Some potential issues
+
+- The thermistor and photoresistive interfaces are exploratory. The known lack of linearity of the ESP32 A2D may have an impact on the quality of the retrieved data. See [here](https://www.e-tinkers.com/2019/10/using-a-thermistor-with-arduino-and-unexpected-esp32-adc-non-linearity/), and [here](https://rntlab.com/question/analogread-for-ntc-thermistor/) for further information.
+
+- The Micro USB-B connector is a specific part with only 2 through hole pins (GND and 5V). See the BOM below for purchase locations. On Amazon, there is 100, 30 and 10 pieces bundles available. A more conventional 5-pins connector may be adapted (physical tweak or modification to the board design).
+
+- The LED is for use only with the external power supply and is hooked on the 5v side of the linear regulator. It could have been hooked to the 3.3v side, closer to the ESP32.
+
+## Bill of Material (BOM)
 
 | Reference(s) | Value | Footprint | Where to find |
 |:------------:|:-----:|:---------:|:--------------
-| C1 | .1uF | 0805 | |
-| C2, C5 | 10nF | 0805 | |
-| C3, C4 | 100nF | 0805 | |
-| D1 | MBR120VLSF or equivalent | SOD-123 | [e-Radionica](https://e-radionica.com/en/schottky-diode-mbr120vlsft3g-sod123.html), [Digikey](https://www.digikey.com/en/products/detail/on-semiconductor/MBR120VLSFT3G/1477157), [Mouser](https://www.mouser.com/ProductDetail/onsemi/MBR120VLSFT3G?qs=3JMERSakebrD2yr9jFliaA%3D%3D) |
+| C1           | .1uF  | 0805      | |
+| C2, C5       | 10nF  | 0805      | |
+| C3, C4       | 100nF | 0805      | |
+| D1           | MBR120VLSF or equivalent | SOD-123 | [e-Radionica](https://e-radionica.com/en/schottky-diode-mbr120vlsft3g-sod123.html), [Digikey](https://www.digikey.com/en/products/detail/on-semiconductor/MBR120VLSFT3G/1477157), [Mouser](https://www.mouser.com/ProductDetail/onsemi/MBR120VLSFT3G?qs=3JMERSakebrD2yr9jFliaA%3D%3D) |
 | D2 | 1N4148WS | SOD-323 | [Digikey](https://www.digikey.com/en/products/detail/on-semiconductor/1N4148WS/1873805), [Mouser](https://www.mouser.ca/ProductDetail/onsemi-Fairchild/1N4148WS?qs=2%2FYqgE%252BHg%252BKBrKZlAsMLhw%3D%3D) |
 | D3 | LED | 0805 | |
 | J1 | Connector 1x3 | Pin Header 2.54mm | |
