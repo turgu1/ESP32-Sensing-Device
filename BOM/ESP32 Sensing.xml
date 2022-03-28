@@ -2,7 +2,7 @@
 <export version="E">
   <design>
     <source>/home/turgu1/Dev/KiCad/ESP32 Sensing/KiCAD/ESP32 Sensing.kicad_sch</source>
-    <date>Wed 23 Mar 2022 08:08:51 PM</date>
+    <date>Mon 28 Mar 2022 03:08:43 PM</date>
     <tool>Eeschema 6.0.4-6f826c9f35~116~ubuntu20.04.1</tool>
     <sheet number="1" name="/" tstamps="/">
       <title_block>
@@ -34,7 +34,7 @@
       <tstamps>95e485b2-bafd-448d-a3a8-cc9ce9ee5174</tstamps>
     </comp>
     <comp ref="C2">
-      <value>10n</value>
+      <value>10u</value>
       <footprint>Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder</footprint>
       <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
       <property name="Sheetname" value=""/>
@@ -61,7 +61,7 @@
       <tstamps>3cf9768b-df10-4e30-b17e-16c3652995a2</tstamps>
     </comp>
     <comp ref="C5">
-      <value>10n</value>
+      <value>10u</value>
       <footprint>Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder</footprint>
       <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
       <property name="Sheetname" value=""/>
@@ -714,7 +714,7 @@
       <node ref="Q2" pin="1" pinfunction="G" pintype="input"/>
       <node ref="R1" pin="2" pintype="passive"/>
     </net>
-    <net code="18" name="Net-(R3-Pad2)">
+    <net code="18" name="Net-(Q2-Pad3)">
       <node ref="Q2" pin="3" pinfunction="D" pintype="passive"/>
       <node ref="R3" pin="2" pintype="passive"/>
     </net>

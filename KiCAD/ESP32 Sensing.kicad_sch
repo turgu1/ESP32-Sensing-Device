@@ -2270,10 +2270,10 @@
     (property "Reference" "C2" (id 0) (at 62.23 71.12 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Value" "10n" (id 1) (at 62.23 73.66 0)
+    (property "Value" "" (id 1) (at 62.23 73.66 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Footprint" "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" (id 2) (at 60.6552 76.2 0)
+    (property "Footprint" "" (id 2) (at 60.6552 76.2 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (id 3) (at 59.69 72.39 0)
@@ -2984,7 +2984,7 @@
     (property "Reference" "C5" (id 0) (at 102.87 71.12 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Value" "10n" (id 1) (at 102.87 73.66 0)
+    (property "Value" "" (id 1) (at 102.87 73.66 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Footprint" "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" (id 2) (at 101.2952 76.2 0)
@@ -3001,7 +3001,7 @@
     (in_bom yes) (on_board yes) (fields_autoplaced)
     (uuid f4d07452-5838-44e6-b966-b49f14e25425)
     (property "Reference" "Q2" (id 0) (at 217.17 92.71 90))
-    (property "Value" "" (id 1) (at 217.17 95.25 90))
+    (property "Value" "NDS356AP" (id 1) (at 217.17 95.25 90))
     (property "Footprint" "Package_TO_SOT_SMD:SOT-23" (id 2) (at 205.74 100.33 0)
       (effects (font (size 1.27 1.27)) hide)
     )
@@ -3079,7 +3079,7 @@
       (reference "C1") (unit 1) (value ".1u") (footprint "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder")
     )
     (path "/3322442e-6e2b-4aec-8963-f9711a4d7d5a"
-      (reference "C2") (unit 1) (value "10n") (footprint "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder")
+      (reference "C2") (unit 1) (value "10u") (footprint "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder")
     )
     (path "/ad0f22cf-16aa-4712-8b8d-6d4df83357d3"
       (reference "C3") (unit 1) (value "100n") (footprint "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder")
@@ -3088,7 +3088,7 @@
       (reference "C4") (unit 1) (value "100n") (footprint "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder")
     )
     (path "/f3edeb31-1206-44d1-a81c-d4b62d24bf49"
-      (reference "C5") (unit 1) (value "10n") (footprint "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder")
+      (reference "C5") (unit 1) (value "10u") (footprint "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder")
     )
     (path "/2af885a8-38bb-4e65-b90c-6c0a01eeb3bb"
       (reference "D1") (unit 1) (value "MBR120VLSF") (footprint "Diode_SMD:D_SOD-123F")

@@ -120,7 +120,7 @@
   (net 42 "Net-(D1-Pad2)")
   (net 43 "Net-(D2-Pad1)")
   (net 44 "Net-(D3-Pad2)")
-  (net 45 "Net-(R3-Pad2)")
+  (net 45 "Net-(Q2-Pad3)")
 
   (footprint "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" (layer "F.Cu")
     (tedit 59FED5CC) (tstamp 053e5e81-bf1d-42fe-bad6-5d51e8b304ed)
@@ -1050,7 +1050,7 @@
     (pad "1" smd roundrect (at -1 0 270) (size 1.2 1.4) (layers "B.Cu" "B.Paste" "B.Mask") (roundrect_rratio 0.2083333333)
       (net 8 "A2D") (pintype "passive") (tstamp 8acc5e44-a2a4-4eca-ae7a-14b158ede767))
     (pad "2" smd roundrect (at 1 0 270) (size 1.2 1.4) (layers "B.Cu" "B.Paste" "B.Mask") (roundrect_rratio 0.2083333333)
-      (net 45 "Net-(R3-Pad2)") (pintype "passive") (tstamp 54aba7f9-713f-4b0c-b7e8-cfe71d9d4230))
+      (net 45 "Net-(Q2-Pad3)") (pintype "passive") (tstamp 54aba7f9-713f-4b0c-b7e8-cfe71d9d4230))
     (model "${KICAD6_3DMODEL_DIR}/Resistor_SMD.3dshapes/R_0805_2012Metric.wrl"
       (offset (xyz 0 0 0))
       (scale (xyz 1 1 1))
@@ -2208,7 +2208,7 @@
       (effects (font (size 1 1) (thickness 0.15)) (justify mirror))
       (tstamp b5375a30-795b-4cf7-9ccc-662a90ba72a4)
     )
-    (fp_text value "10n" (at 0 -1.68 90) (layer "B.Fab") hide
+    (fp_text value "10u" (at 0 -1.68 90) (layer "B.Fab") hide
       (effects (font (size 1 1) (thickness 0.15)) (justify mirror))
       (tstamp b2379fe0-48d5-466d-894e-8e6da216df1b)
     )
@@ -2276,7 +2276,7 @@
     (pad "2" smd roundrect (at -0.9375 -0.95 90) (size 1.475 0.6) (layers "B.Cu" "B.Paste" "B.Mask") (roundrect_rratio 0.25)
       (net 5 "+3V3") (pinfunction "S") (pintype "passive") (tstamp bd72c5fa-1dbb-45a7-a8cc-b54e08de1542))
     (pad "3" smd roundrect (at 0.9375 0 90) (size 1.475 0.6) (layers "B.Cu" "B.Paste" "B.Mask") (roundrect_rratio 0.25)
-      (net 45 "Net-(R3-Pad2)") (pinfunction "D") (pintype "passive") (tstamp 5d6a8fee-0f28-4bb9-866f-abcc0089d992))
+      (net 45 "Net-(Q2-Pad3)") (pinfunction "D") (pintype "passive") (tstamp 5d6a8fee-0f28-4bb9-866f-abcc0089d992))
     (model "${KICAD6_3DMODEL_DIR}/Package_TO_SOT_SMD.3dshapes/SOT-23.wrl"
       (offset (xyz 0 0 0))
       (scale (xyz 1 1 1))
@@ -2297,7 +2297,7 @@
       (effects (font (size 1 1) (thickness 0.15)) (justify mirror))
       (tstamp cc850dc5-b03e-4031-9fe6-82f8450f7cf8)
     )
-    (fp_text value "10n" (at 0 -1.68 90) (layer "B.Fab") hide
+    (fp_text value "10u" (at 0 -1.68 90) (layer "B.Fab") hide
       (effects (font (size 1 1) (thickness 0.15)) (justify mirror))
       (tstamp a566955d-5910-4abb-bb52-516fbffe2604)
     )

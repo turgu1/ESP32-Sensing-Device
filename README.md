@@ -1,6 +1,6 @@
 # ESP32 Sensing device V1.0
 
-(Updated March 25, 2022)
+(Updated March 28, 2022)
 
 This is a small footprint ESP32-based sensing device, with the following characteristics:
 
@@ -64,7 +64,7 @@ The electronic component identifiers required for each subsection are listed ins
 | Reference(s) | Value | Footprint | Where to find |
 |:------------:|:-----:|:---------:|:--------------
 | C1           | .1uF  | 0805      | |
-| C2, C5       | 10nF  | 0805      | |
+| C2, C5       | 10uF  | 0805      | |
 | C3, C4       | 100nF | 0805      | |
 | D1           | MBR120VLSF or equivalent | SOD-123 | [e-Radionica](https://e-radionica.com/en/schottky-diode-mbr120vlsft3g-sod123.html), [Digikey](https://www.digikey.com/en/products/detail/on-semiconductor/MBR120VLSFT3G/1477157), [Mouser](https://www.mouser.com/ProductDetail/onsemi/MBR120VLSFT3G?qs=3JMERSakebrD2yr9jFliaA%3D%3D) |
 | D2 | 1N4148WS | SOD-323 | [Digikey](https://www.digikey.com/en/products/detail/on-semiconductor/1N4148WS/1873805), [Mouser](https://www.mouser.ca/ProductDetail/onsemi-Fairchild/1N4148WS?qs=2%2FYqgE%252BHg%252BKBrKZlAsMLhw%3D%3D) |
