@@ -1,6 +1,6 @@
 # ESP32 Sensing device V1.0
 
-(Updated March 28, 2022)
+(Updated March 29, 2022)
 
 This is a small footprint ESP32-based sensing device, with the following characteristics:
 
@@ -57,15 +57,17 @@ The electronic component identifiers required for each subsection are listed ins
 
 - The LED is for use only with the external power supply and is hooked on the 5v side of the linear regulator. It could have been hooked to the 3.3v side, closer to the ESP32.
 
-- The linear 3.3v regulator capacitors mays have to be different than the one selected. In particular, on the output side, to get a better transient response, a 22uF tantalum may replace the one indicated (per the AMS1117 spec sheet).
+- The linear 3.3v regulator capacitors may have to be different than the one selected. In particular, on the output side, to get a better transient response, a 22uF tantalum may replace the one indicated (per the AMS1117 spec sheet).
+
+- Using batteries to power the device: depending on the processor speed and the networking requirements at startup (WiFi, BT, BLE), the AA batteries may not be able to supply the required startup current (100 to 500 mA). Many options are possible: use larger batteries, lithium instead of alkaline, add some capacitors (tantalum or other) at C4/C5 locations.
 
 ## Bill of Material (BOM)
 
 | Reference(s) | Value | Footprint | Where to find |
-|:------------:|:-----:|:---------:|:--------------
-| C1           | .1uF  | 0805      | |
-| C2, C5       | 10uF  | 0805      | |
-| C3, C4       | 100nF | 0805      | |
+|:------------:|:-----:|:---------:|:--------------|
+| C1           | .1uF  | 0805      |               |
+| C2, C5       | 10uF  | 0805      |               |
+| C3, C4       | 100nF | 0805      |               |
 | D1           | MBR120VLSF or equivalent | SOD-123 | [e-Radionica](https://e-radionica.com/en/schottky-diode-mbr120vlsft3g-sod123.html), [Digikey](https://www.digikey.com/en/products/detail/on-semiconductor/MBR120VLSFT3G/1477157), [Mouser](https://www.mouser.com/ProductDetail/onsemi/MBR120VLSFT3G?qs=3JMERSakebrD2yr9jFliaA%3D%3D) |
 | D2 | 1N4148WS | SOD-323 | [Digikey](https://www.digikey.com/en/products/detail/on-semiconductor/1N4148WS/1873805), [Mouser](https://www.mouser.ca/ProductDetail/onsemi-Fairchild/1N4148WS?qs=2%2FYqgE%252BHg%252BKBrKZlAsMLhw%3D%3D) |
 | D3 | LED | 0805 | |
