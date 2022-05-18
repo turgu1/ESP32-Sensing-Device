@@ -1,5 +1,14 @@
 # ESP32 Sensing device V1.0
 
+(Update May 18, 2022)
+
+The thermistor and photo-resistor sensors are working well. As they use GPIO 25 and 27 A2D capability (ADC2), the WiFi interface cannot be enabled at the same time the sensors are being read: the ADC2 electronics is shared with the onboard  WiFi capability. An updated version of the device is being prepared to use ADC1 GPIOs instead.
+
+(Update May 17, 2022)
+
+All the trials are positive so far. For R1, instead of 10K, I'm using 2.7M ohms.
+Remains the thermistor and photo-resistor sensors to try.
+
 (Updated March 29, 2022)
 
 This is a small footprint ESP32-based sensing device, with the following characteristics:
@@ -44,8 +53,8 @@ The electronic component identifiers required for each subsection are listed ins
 - **External 5V Power**, [**U2**, **J6**, **D1**, **D3**, **R13**, **C2**, **C3**, **C4**, **C5**] - This is a linear 3.3V regulator circuit, only required when a DC 5 Volts power supply is used. It is expected that the power supply is using a male micro USB-B connector. **Do not implement this subsection if you intend to use batteries.**
 - **Voltage Monitoring** [**Q1**, **Q2**, **R1**, **R2**, **R3**, **R4**] - This circuit will allow for reading the 3.3 V power voltage for the device through ADC1_0 internal to the ESP32. If AA batteries are used, it will allow monitoring the battery level to replace them when required. The MOSFET transistor [**Q2**] insure that the circuit will not take a load on the batteries. Must be enabled through [**Q1**] using GPIO17.
 - **Generic Sensor Input** [**J3**, **R7**, **R8**, **R9**, **R10**] - This is a port to retrieve some sensor information. The four resistors must be adjusted to consider the kind of sensing to be done (pull-up, pull-down, etc.). Some resistors locations can be used for capacitors if required (e.g. adding an RC circuit). This sensor is connected to GPIO15 (ADC2_3) of the ESP32.
-- **Heat Sensor** [**J4**, **R11**] - Allow for reading the level of Heat using an external thermistor through an A2D of the processor. This sensor is connected to GPIO25 (ADC2_8) of the ESP32. Can be used with another kind of sensor as appropriate.
-- **Light Sensor** [**J5**, **R12**] - Allow for reading the level of Heat using an external photoresistor through an A2D of the processor. This sensor is connected to GPIO27 (ADC2_7) of the ESP32. Can be used with another kind of sensor as appropriate.
+- **Heat Sensor** [**J4**, **R11**] - Allow for reading the level of Heat using an external thermistor through an A2D of the processor (ADC2). This sensor is connected to GPIO25 (ADC2_8) of the ESP32. Can be used with another kind of sensor as appropriate. As the ADC2 circuitry is also used by the WiFi interface, the WiFi interface cannot be enabled at the same time the sensor is being read.
+- **Light Sensor** [**J5**, **R12**] - Allow for reading the level of Heat using an external photoresistor through an A2D of the processor (ADC2). This sensor is connected to GPIO27 (ADC2_7) of the ESP32. Can be used with another kind of sensor as appropriate. As the ADC2 circuitry is also used by the WiFi interface, the WiFi interface cannot be enabled at the same time the sensor is being read.
 
 <img src="pictures/ESP32-wroom-32-pinout-mischianti-high-resolution.png" alt="picture" width="612"/>
 
