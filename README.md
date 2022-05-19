@@ -2,21 +2,21 @@
 
 ## Updates
 
-(Uodate May 19, 2022)
+(Updated May 19, 2022)
 
-New version ready for production. Here are the modifications done:
+The new version is ready for production. Here are the modifications from version 1.0:
 
 - Sensors using GPIO 15 (Generic sensor), 25 (thermistor) and 27 (light sensor) migrated to GPIO 32, 34 and 35 respectively
 - Added I2C interface
-- Added program controlled led
-- All parts are alligned on the same direction on board, to simplify hand soldering
-- The board is 0.6mm larger in size
+- Added program-controlled led
+- All parts are aligned in the same direction onboard, to simplify hand soldering
+- The board is 0.6mm larger
 
-(Update May 18, 2022)
+(Updated May 18, 2022)
 
-The thermistor and photo-resistor sensors are working well. As they use GPIO 25 and 27 A2D capability (ADC2), the WiFi interface cannot be enabled at the same time the sensors are being read: the ADC2 electronics is shared with the onboard  WiFi capability. An updated version of the device is being prepared to use ADC1 GPIOs instead.
+The thermistor and photo-resistor sensors are working well. As they use GPIO 25 and 27 A2D capability (ADC2), the WiFi interface cannot be enabled at the same time the sensors are being read: the ADC2 electronics is shared with the onboard  WiFi capability. An updated version of the device is being prepared to use ADC1 GPIOs instead. (This has been corrected in version 2.0)
 
-(Update May 17, 2022)
+(Updated May 17, 2022)
 
 All the trials are positive so far. For R1, instead of 10K, I'm using 2.7M ohms.
 Remains the thermistor and photo-resistor sensors to try.
@@ -54,7 +54,7 @@ The choice of components is related to their availability in my inventory.
 
 ## Design Description
 
-Looking at the schematic, you will find here the information related to each subsection present on the device. Some subsections are required, others are optional depending on your needs.
+Looking at the schematic, you will find here the information related to each subsection present on the device. Some subsections are required, and others are optional depending on your needs.
 
 The electronic component identifiers required for each subsection are listed inside square brackets.
 
@@ -63,18 +63,18 @@ The electronic component identifiers required for each subsection are listed ins
 - **ESP-WROOM-32** [**U1**] - This is the processor in use on the device.
 - **RESET Button** [**SW2**, **R6**, **C1**] - Required to maintain the processor working and do a reset when it is required to take back the control for programming or when the device is not behaving properly.
 - **PGM Button** [**SW1**, **R5**] - For programming the processor, the PGM Button must be pressed as the reset button is also pressed, and then released *after* releasing the reset button, such that the processor will be put in program loading. The FTDI interface must be connected to the computer to transmit the new program.
-- **FTDI** [**D2**, **J1**] - This is the connection to an external FTDI device that allows for communication between the ESP32 processor and a development PC for program loading and debugging output. Connector's pins are labeled **G** (Ground), **R** (RxD), and **T** (TxD) relative to the ESP32 pinout: The External FTDI GND pin must be connected to **G**, the FTDI RxD pin must be connected to **T**, and the FTDI TxD pin must be connected to **R**. Power must be supplied to the board through AA batteries or external power supply.
+- **FTDI** [**D2**, **J1**] - This is the connection to an external FTDI device that allows for communication between the ESP32 processor and a development PC for program loading and debugging output. Connector's pins are labeled **G** (Ground), **R** (RxD), and **T** (TxD) relative to the ESP32 pinout: The External FTDI GND pin must be connected to **G**, the FTDI RxD pin must be connected to **T**, and the FTDI TxD pin must be connected to **R**. Power must be supplied to the board through AA batteries or an external power supply.
 
 ### Optional Subsections
 
-- **AAx2 Battery Connector** [**J2**] - If power is to be supplied with AA batteries, the connector is required. The batteries holder wires can also be directly soldered in the through-holes. Please respect the polarity (a '+' sign is present on the board to indicate the positive wire location). **Do not connect any battery if you intend to use an external power supply.**
+- **AAx2 Battery Connector** [**J2**] - If power is to be supplied with AA batteries, the connector is required. The battery holder wires can also be directly soldered in the through-holes. Please respect the polarity (a '+' sign is present on the board to indicate the positive wire location). **Do not connect any battery if you intend to use an external power supply.**
 - **External 5V Power**, [**U2**, **J6**, **D1**, **D3**, **R13**, **C2**, **C3**, **C4**, **C5**] - This is a linear 3.3V regulator circuit, only required when a DC 5 Volts power supply is used. It is expected that the power supply is using a male micro USB-B connector. **Do not implement this subsection if you intend to use batteries.**
 - **Voltage Monitoring** [**Q1**, **Q2**, **R1**, **R2**, **R3**, **R4**] - This circuit will allow for reading the 3.3 V power voltage for the device through ADC1_0 internal to the ESP32. If AA batteries are used, it will allow monitoring the battery level to replace them when required. The MOSFET transistor [**Q2**] insure that the circuit will not take a load on the batteries. Must be enabled through [**Q1**] using GPIO17.
-- **Generic Sensor Input** [**J3**, **R7**, **R8**, **R9**, **R10**] - This is a port to retrieve some sensor information. The four resistors must be adjusted to consider the kind of sensing to be done (pull-up, pull-down, etc.). Some resistors locations can be used for capacitors if required (e.g. adding an RC circuit). This sensor is connected to GPIO32 (ADC1_4) of the ESP32. The J3 pins are labelled 1: G (Gnd), 2: S (Signal).
-- **Heat Sensor** [**J4**, **R11**] - Allow for reading the level of Heat using an external thermistor through an A2D of the processor (ADC1). This sensor is connected to GPIO34 (ADC1_6) of the ESP32. Can be used with another kind of sensor as appropriate. The J4 pins are labelled 1: G (Gnd), 2: Th (Signal).
-- **Light Sensor** [**J5**, **R12**] - Allow for reading the level of Heat using an external photoresistor through an A2D of the processor (ADC1). This sensor is connected to GPIO35 (ADC1_7) of the ESP32. Can be used with another kind of sensor as appropriate. The J5 pins are labelled 1: G (Gnd), 2: Li (Signal).
-- **I2C Interface** [**J7**, **R14**, **R15**] - Used to connect to external I2C devices (displays, sensors, etc). Connected to the ESP32 trough GPIO21 (SDA) and GPIO22 (SCL). The J7 connector offers 3.3v and GND pins. Resistors may have to be adjusted depending on the load. The J7 Pins are labelled 1: G (ground), 2: D (SDA), 3: + (3.3v), 4: C (SCL)
-- **Program Controlled LED** [**D4**, **R16**] - Could be usefull for debugging purpose. Not a good idea to use on battery powered devices. Connected to ESP32 GPIO12.
+- **Generic Sensor Input** [**J3**, **R7**, **R8**, **R9**, **R10**] - This is a port to retrieve some sensor information. The four resistors must be adjusted to consider the kind of sensing to be done (pull-up, pull-down, etc.). Some resistor locations can be used for capacitors if required (e.g. adding an RC circuit). This sensor is connected to GPIO32 (ADC1_4) of the ESP32. The J3 pins are labeled 1: G (Gnd), 2: S (Signal).
+- **Heat Sensor** [**J4**, **R11**] - Allow for reading the level of Heat using an external thermistor through an A2D of the processor (ADC1). This sensor is connected to GPIO34 (ADC1_6) of the ESP32. Can be used with another kind of sensor as appropriate. The J4 pins are labeled 1: G (Gnd), 2: Th (Signal).
+- **Light Sensor** [**J5**, **R12**] - Allow for reading the level of Heat using an external photoresistor through an A2D of the processor (ADC1). This sensor is connected to GPIO35 (ADC1_7) of the ESP32. Can be used with another kind of sensor as appropriate. The J5 pins are labeled 1: G (Gnd), 2: Li (Signal).
+- **I2C Interface** [**J7**, **R14**, **R15**] - Used to connect to external I2C devices (displays, sensors, etc). Connected to the ESP32 through GPIO21 (SDA) and GPIO22 (SCL). The J7 connector offers 3.3v and GND pins. Resistors may have to be adjusted depending on the load. The J7 Pins are labeled 1: G (ground), 2: D (SDA), 3: + (3.3v), 4: C (SCL)
+- **Program Controlled LED** [**D4**, **R16**] - Could be useful for debugging purpose. Not a good idea to use it on battery-powered devices. Connected to ESP32 GPIO12.
 
 <img src="pictures/ESP32-wroom-32-pinout-mischianti-high-resolution.png" alt="picture" width="612"/>
 
@@ -88,7 +88,7 @@ The electronic component identifiers required for each subsection are listed ins
 
 - The linear 3.3v regulator capacitors may have to be different than the one selected. In particular, on the output side, to get a better transient response, a 22uF tantalum may replace the one indicated (per the AMS1117 spec sheet).
 
-- Using batteries to power the device: depending on the processor speed and the networking requirements at startup (WiFi, BT, BLE), the AA batteries may not be able to supply the required startup current (100 to 500 mA). Many options are possible: use larger batteries, lithium instead of alkaline, add some capacitors (tantalum or other) at C4/C5 locations.
+- Using batteries to power the device: depending on the processor speed and the networking requirements at startup (WiFi, BT, BLE), the AA batteries may not be able to supply the required startup current (100 to 500 mA). Many options are possible: use larger batteries, lithium instead of alkaline, and add some capacitors (tantalum or other) at C4/C5 locations.
 
 ## Bill of Material (BOM)
 
