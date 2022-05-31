@@ -1,0 +1,128 @@
+# FREEZER
+#
+# I/O Configuration:
+# -----------------
+#
+# Thermistor:
+#   Analog readout: GPIO 34
+#   Read Enable: GPIO 25
+#
+# Freezer Door: GPIO 32
+#
+# Debug LED: GPIO 12
+#
+# Values transmitted to Home Assistant:
+# ------------------------------------
+#
+#  - Freezer Temp
+#  - Freezer Door Open
+#  - Freezer ADC Th
+#  - Freezer Resistance Th
+#  - Freezer WiFi Strength
+#
+# The ADC, Resistance and Temp values are read every 15 minutes.
+# The WiFi Strength value is read every 24 hours.
+
+substitutions:
+  devicename: freezer
+  
+esphome:
+  name: $devicename
+  includes:
+    - .freezer_adc_lut.h # Generated with lut_gener.ino
+
+esp32:
+  board: esp32dev
+  framework:
+    type: arduino
+
+# Enable logging
+#logger:
+
+# Enable Home Assistant API
+api:
+
+ota:
+  password: "blablabla"
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+  fast_connect: true
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Freezer Fallback Hotspot"
+    password: "blablabla"
+
+captive_portal:
+
+output:
+  - platform: gpio
+    pin: 25
+    id: thermistor_enable
+    inverted: false
+  - platform: gpio
+    pin: 12
+    id: led
+    inverted: false
+
+binary_sensor:
+  - platform: gpio
+    pin: 
+      number: GPIO32
+      inverted: false
+      mode:
+        input: True
+    filters:
+      - delayed_off: 25ms
+      - delayed_on: 25ms
+    name: "Freezer Door Open"
+    on_press:
+      then:
+        - output.turn_on: led
+    on_release:
+        - output.turn_off: led
+
+sensor:    
+  - platform: wifi_signal
+    name: "Freezer WiFi Strength"
+    update_interval: 24h
+
+  - platform: adc
+    id: adc_thermistor
+    pin: 34
+    raw: true
+    attenuation: 11db
+    update_interval: never
+    unit_of_measurement: V
+    name: "Freezer ADC Th"
+    filters:
+      - lambda: return ADC_LUT[(int)x] * 3.3 / 4095.0;
+
+  - platform: resistance
+    id: resistance_thermistor
+    sensor: adc_thermistor
+    configuration: DOWNSTREAM
+    resistor: 10.0kOhm
+    name: "Freezer Resistance Th"
+
+  - platform: ntc
+    sensor: resistance_thermistor
+    calibration:
+      b_constant: 3950
+      reference_temperature: 25°C
+      reference_resistance: 10kOhm
+    unit_of_measurement: "°C"
+    accuracy_decimals: 2
+    icon: mdi:thermometer
+    name: "Freezer Temp"
+
+interval:
+  - interval: 15min
+    then:
+      - output.turn_on: thermistor_enable
+      - component.update: adc_thermistor
+      - output.turn_off: thermistor_enable
+
+mqtt: !include .mqtt.yaml

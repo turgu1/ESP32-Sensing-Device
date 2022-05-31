@@ -2,6 +2,19 @@
 
 ## Updates
 
+(Updated May 31, 2022)
+
+Received the V2.0 PCBs yesterday. First modifications (Not shown on the schematic):
+
+- Led resistors (R13, R16): 1 kOhms instead of 220 Ohms (the LEDs are way too bright).
+- Thermistor 10 kOhms resistor R11 hooked to GPIO25 instead of 3.3V using a wire: To diminish thermistor heath effect on reading values, the GPIO25 is put high only at thermistor read time.
+
+The thermistor is only used when the device is connected to an external source of power: to get an accurate 3.3v source for thermistor read-outs.
+
+To compensate for the lack of linearity of the ESP32 A2D, a lookup table has been generated and used by the software (ESPHome). See the generator here: `software/lut_gener.ino` Pins 34 and 25 must be connected before using the generator (without the GPIO34 resistor). Must be used for each ESP32 instance (will be different for each ESP32 chip). An example of the generated table can be found here: `software/.freezer_adc_lut.h`.
+
+An ESPHome example of use to sense a Freezer is supplied in `software/freezer.yaml`.
+
 (Updated May 19, 2022)
 
 The new version is ready for production. Here are the modifications from version 1.0:
@@ -74,7 +87,7 @@ The electronic component identifiers required for each subsection are listed ins
 - **Heat Sensor** [**J4**, **R11**] - Allow for reading the level of Heat using an external thermistor through an A2D of the processor (ADC1). This sensor is connected to GPIO34 (ADC1_6) of the ESP32. Can be used with another kind of sensor as appropriate. The J4 pins are labeled 1: G (Gnd), 2: Th (Signal).
 - **Light Sensor** [**J5**, **R12**] - Allow for reading the level of Heat using an external photoresistor through an A2D of the processor (ADC1). This sensor is connected to GPIO35 (ADC1_7) of the ESP32. Can be used with another kind of sensor as appropriate. The J5 pins are labeled 1: G (Gnd), 2: Li (Signal).
 - **I2C Interface** [**J7**, **R14**, **R15**] - Used to connect to external I2C devices (displays, sensors, etc). Connected to the ESP32 through GPIO21 (SDA) and GPIO22 (SCL). The J7 connector offers 3.3v and GND pins. Resistors may have to be adjusted depending on the load. The J7 Pins are labeled 1: G (ground), 2: D (SDA), 3: + (3.3v), 4: C (SCL)
-- **Program Controlled LED** [**D4**, **R16**] - Could be useful for debugging purpose. Not a good idea to use it on battery-powered devices. Connected to ESP32 GPIO12.
+- **Program Controlled LED** [**D4**, **R16**] - Could be useful for debugging purpose. Not a good idea to use it on battery-powered devices. Connected to ESP32 GPIO12. Important: Must be programmed as an output GPIO.
 
 <img src="pictures/ESP32-wroom-32-pinout-mischianti-high-resolution.png" alt="picture" width="612"/>
 
